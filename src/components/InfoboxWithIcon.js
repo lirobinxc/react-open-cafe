@@ -7,12 +7,23 @@ import { globalTheme } from '../utlities/globalTheme';
 const StyledInfoboxWithIcon = styled.div`
   background: ${globalTheme.white};
   margin: 0px;
+  min-height: 200px;
+  padding: 20px;
+  display: flex;
+  flex: 1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .icon {
   }
   h2 {
   }
   p {
     margin: 0;
+  }
+  @media all and (max-width: 768px) {
+    min-height: 100px;
   }
 `;
 /* ========== COMPONENT ========== */

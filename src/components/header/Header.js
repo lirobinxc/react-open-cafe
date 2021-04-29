@@ -27,7 +27,7 @@ const StyledHeader = styled.header`
 const Header = () => {
   return (
     <StyledHeader>
-      <div className="navbar">
+      <div className="navbar" contenteditable="true">
         <Logo />
         <NavbarMenu />
       </div>

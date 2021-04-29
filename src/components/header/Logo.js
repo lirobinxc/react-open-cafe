@@ -11,7 +11,7 @@ const LogoWrapper = styled.div`
   align-items: center;
   h1 {
     font-size: 2rem;
-    span {
+    &.first {
       color: ${globalTheme.font2};
     }
   }
@@ -28,10 +28,10 @@ const Logo = ({ companyFirstName = 'Open', companyLastName = 'Cafe' }) => {
   return (
     <LogoWrapper>
       <StyledLogo />
-      <h1>
-        <span>{companyFirstName}</span>
-        {companyLastName}
+      <h1 id="logo" className="first">
+        {companyFirstName}
       </h1>
+      <h1 id="logo">{companyLastName}</h1>
     </LogoWrapper>
   );
 };

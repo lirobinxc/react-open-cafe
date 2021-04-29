@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Button from './Button';
 import photo from '../images/showcase.jpg';
 import { globalTheme } from '../utlities/globalTheme';
+import { useContext } from 'react';
+import store from '../store/store';
 
 /* ========== STYLES ========== */
 const StyledHero = styled.div`
@@ -61,6 +63,15 @@ const HeroButton = styled(Button)`
 
 /* ========== COMPONENT ========== */
 const Hero = () => {
+  const { state, dispatch } = useContext(store);
+  function openEditingBar() {
+    dispatch({ type: 'TOGGLE_EDITING_BAR' });
+  }
+
+  const displayEditingBarStyle = {
+    display: state.isEditingBarOpen ? 'none' : '',
+  };
+
   return (
     <StyledHero>
       <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
@@ -68,7 +79,11 @@ const Hero = () => {
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam,
         perferendis.
       </p>
-      <HeroButton href="#" name="Customize" />
+      <HeroButton
+        style={displayEditingBarStyle}
+        handleClick={openEditingBar}
+        name="Customize"
+      />
     </StyledHero>
   );
 };

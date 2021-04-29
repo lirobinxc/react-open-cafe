@@ -23,9 +23,9 @@ const StyledButton = styled.button`
 `;
 
 /* ========== COMPONENT ========== */
-const Button = ({ className, href, name }) => {
+const Button = ({ className, handleClick, name }) => {
   return (
-    <StyledButton className={className} href={href}>
+    <StyledButton className={className} onClick={handleClick}>
       {name}
     </StyledButton>
   );
@@ -35,6 +35,6 @@ export default Button;
 
 /* ========== PROPTYPES ========== */
 Button.propTypes = {
-  href: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
 };

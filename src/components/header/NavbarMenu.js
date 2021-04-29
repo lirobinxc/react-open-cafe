@@ -9,7 +9,7 @@ const StyledNavbar = styled.nav`
     flex-wrap: nowrap;
     li {
       list-style: none;
-      flex-grow: 1;
+      justify-content: flex-end;
       button {
         background-color: rgb(0, 0, 0, 0);
         border: none;
@@ -44,7 +44,7 @@ const NavbarMenu = () => {
       <ul>
         {items.map((ele) => {
           return (
-            <li key={ele}>
+            <li key={ele} contenteditable="false">
               <button
                 id={`navbar-${ele.toLowerCase()}`}
                 className={ele === current ? 'current' : null}

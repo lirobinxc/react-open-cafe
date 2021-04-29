@@ -12,7 +12,7 @@ $medium: #ad6a1d;
 }
 
 body {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $font1;
@@ -28,4 +28,17 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   margin: 10px 0;
   line-height: 1.4em;
+}
+
+kbd {
+  background-color: whitesmoke;
+  border: 1px solid grey;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.2em;
+}
+
+#logo {
+  font-family: 'Courgette', serif;
 }

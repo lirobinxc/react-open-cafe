@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import InfoboxWithIcon from './InfoboxWithIcon';
 import { globalTheme } from '../utlities/globalTheme';
 import { Coffee } from '@styled-icons/fa-solid/Coffee';
@@ -8,19 +7,26 @@ import { MusicNoteBeamed } from '@styled-icons/bootstrap/MusicNoteBeamed';
 import { Food } from '@styled-icons/fluentui-system-filled/Food';
 
 /* ========== STYLES ========== */
-const StyledQuickOverview = styled.div`
+const StyledOverview = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
   .overview-icon {
     height: 2rem;
     color: ${globalTheme.back1};
   }
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 /* ========== COMPONENT ========== */
-const QuickOverview = () => {
+const Overview = () => {
   const info = [
     {
       iconSvg: <Coffee className="overview-icon" />,
-      title: 'Artisnal Coffee',
+      title: 'Artisanal Coffee',
       summary:
         'Only the finest Columbia and Arabica coffee beans are selected for roasting.',
     },
@@ -38,7 +44,7 @@ const QuickOverview = () => {
   ];
 
   return (
-    <StyledQuickOverview>
+    <StyledOverview>
       {info.map((ele) => {
         return (
           <InfoboxWithIcon
@@ -49,8 +55,8 @@ const QuickOverview = () => {
           />
         );
       })}
-    </StyledQuickOverview>
+    </StyledOverview>
   );
 };
 
-export default QuickOverview;
+export default Overview;
