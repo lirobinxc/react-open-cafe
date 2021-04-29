@@ -1,15 +1,21 @@
-import Header from './components/Header';
+import Header from './components/header/Header';
+import Hero from './components/Hero';
+import QuickOverview from './components/QuickOverview';
 
 function App() {
   return (
     <>
       <Header />
-      <div>Hello</div>
-      <div>Hello</div>
-      <div>Hello</div>
-      <div>Hello</div>
-      <div>Hello</div>
-      <div>Hello</div>
+      <Hero />
+      <QuickOverview />
+      <p>Testing</p>
+      <p>Testing</p>
+      <p>Testing</p>
+      <p>Testing</p>
+      <p>Testing</p>
+      <p>Testing</p>
+      <p>Testing</p>
+      <p>Testing</p>
     </>
   );
 }

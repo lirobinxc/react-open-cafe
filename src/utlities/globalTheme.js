@@ -4,5 +4,5 @@ export const globalTheme = {
   back1: '#2e0a05',
   back2: '#33575b',
   medium: '#ad6a1d',
-  white: '#fafafa',
+  white: '#eeeeee',
 };
