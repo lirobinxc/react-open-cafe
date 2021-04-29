@@ -55,6 +55,7 @@ const StyledHero = styled.div`
 
 const HeroButton = styled(Button)`
   z-index: 2;
+  visibility: ${(props) => (props.display ? 'hidden' : '')};
   font-family: 'Open Sans', sans-serif;
   @media all and (max-width: 768px) {
     flex-direction: column;
@@ -68,21 +69,17 @@ const Hero = () => {
     dispatch({ type: 'TOGGLE_EDITING_BAR' });
   }
 
-  const displayEditingBarStyle = {
-    display: state.isEditingBarOpen ? 'none' : '',
-  };
-
   return (
-    <StyledHero>
+    <StyledHero contentEditable={state.isEditingBarOpen}>
       <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam,
         perferendis.
       </p>
       <HeroButton
-        style={displayEditingBarStyle}
         handleClick={openEditingBar}
         name="Customize"
+        display={state.isEditingBarOpen}
       />
     </StyledHero>
   );

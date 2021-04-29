@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
+import store from '../../store/store';
 import { globalTheme } from '../../utlities/globalTheme';
 import Logo from './Logo';
 import NavbarMenu from './NavbarMenu';
@@ -25,9 +27,11 @@ const StyledHeader = styled.header`
 
 /* ========== COMPONENT ========== */
 const Header = () => {
+  const { state } = useContext(store);
+
   return (
     <StyledHeader>
-      <div className="navbar" contenteditable="true">
+      <div className="navbar" contentEditable={state.isEditingBarOpen}>
         <Logo />
         <NavbarMenu />
       </div>

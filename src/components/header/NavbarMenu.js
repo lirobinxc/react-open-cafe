@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
+import store from '../../store/store';
 import { globalTheme } from '../../utlities/globalTheme';
 
 /* ========== STYLES ========== */
@@ -36,15 +37,16 @@ const StyledNavbar = styled.nav`
 
 /* ========== COMPONENT ========== */
 const NavbarMenu = () => {
+  const { state } = useContext(store);
   const [current, setCurrent] = useState('Home');
   const items = ['Home', 'Menu', 'About', 'Blog', 'Contact'];
 
   return (
-    <StyledNavbar>
+    <StyledNavbar contentEditable={state.isEditingBarOpen}>
       <ul>
         {items.map((ele) => {
           return (
-            <li key={ele} contenteditable="false">
+            <li key={ele}>
               <button
                 id={`navbar-${ele.toLowerCase()}`}
                 className={ele === current ? 'current' : null}

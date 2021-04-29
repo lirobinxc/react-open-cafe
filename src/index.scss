@@ -42,3 +42,21 @@ kbd {
 #logo {
   font-family: 'Courgette', serif;
 }
+
+@keyframes slide-up {
+  0% {
+    bottom: -70px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    bottom: -70px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}

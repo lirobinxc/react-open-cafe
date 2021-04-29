@@ -11,7 +11,9 @@ const StyledEditingBar = styled.div`
   width: 100%;
   position: fixed;
   bottom: 0px;
-  display: flex;
+  display: ${(props) => (props.isDisplayed ? 'flex' : 'none')};
+  flex-wrap: wrap;
+  animation: ${(props) => (props.isDisplayed ? 'slide-up 0.5s ease-out' : '')};
   justify-content: center;
   align-items: center;
   z-index: 99;
@@ -24,12 +26,9 @@ const StyledEditingBar = styled.div`
       margin: 0px;
     }
   }
-  @keyframes slide-up {
-    0% {
-      bottom: -70px;
-    }
-    100% {
-      bottom: 0px;
+  @media all and (max-width: 768px) {
+    .wrapper kbd {
+      display: none;
     }
   }
 `;
@@ -38,6 +37,7 @@ const EditButton = styled(Button)`
   background-color: ${globalTheme.back2};
   color: ${globalTheme.font2};
   margin: 0 10px;
+  flex: 1;
   &:hover {
     background-color: ${globalTheme.font2};
     color: ${globalTheme.back2};
@@ -46,8 +46,7 @@ const EditButton = styled(Button)`
 
 /* ========== COMPONENT ========== */
 const EditingBar = () => {
-  const { state } = useContext(store);
-  const SETTINGS = state;
+  const { state, dispatch } = useContext(store);
 
   function undo() {
     document.execCommand('undo', false, null);
@@ -56,13 +55,8 @@ const EditingBar = () => {
     document.execCommand('redo', false, null);
   }
 
-  const styleForDisplayingEditingBar = {
-    display: SETTINGS.isEditingBarOpen ? '' : 'none',
-    animation: 'slide-up 0.5s ease-out',
-  };
-
   return (
-    <StyledEditingBar style={styleForDisplayingEditingBar}>
+    <StyledEditingBar isDisplayed={state.isEditingBarOpen}>
       <div className="wrapper">
         <EditButton name="Undo" handleClick={undo} />
         <p>
@@ -74,6 +68,12 @@ const EditingBar = () => {
         <p>
           <kbd>Ctrl-Y</kbd>
         </p>
+      </div>
+      <div className="wrapper">
+        <EditButton
+          name="Finish Editing"
+          handleClick={() => dispatch({ type: 'TOGGLE_EDITING_BAR' })}
+        />
       </div>
     </StyledEditingBar>
   );
